@@ -174,7 +174,7 @@ func (h *Handlers) Like(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := h.repo.LikeIt(name.likeOrDis, name.likeOrDis, typeOfCont, ID); err != nil {
+	if err := h.repo.LikeIt(name.liker, name.likeOrDis, typeOfCont, ID); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		h.logger.Errorln(err)
 		return
